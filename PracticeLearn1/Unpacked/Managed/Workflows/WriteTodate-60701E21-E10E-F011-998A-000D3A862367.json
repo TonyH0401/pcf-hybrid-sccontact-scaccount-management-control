@@ -1,0 +1,96 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "cre97_sharedcommondataserviceforapps_602a0"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "type": "Recurrence",
+          "recurrence": {
+            "frequency": "Hour",
+            "interval": 1,
+            "startTime": "2025-03-31T17:00:00Z",
+            "timeZone": "SE Asia Standard Time"
+          },
+          "metadata": {
+            "operationMetadataId": "c1b9adb5-dcc8-41e3-84a6-37c0f312e056"
+          }
+        }
+      },
+      "actions": {
+        "List_rows": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cre97_accidentinsurances"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "b09c34f6-4f7f-48ab-8929-5d18c8998b8d"
+          }
+        },
+        "Apply_to_each": {
+          "type": "Foreach",
+          "foreach": "@outputs('List_rows')?['body/value']",
+          "actions": {
+            "Update_a_row": {
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "entityName": "cre97_accidentinsurances",
+                  "recordId": "@items('Apply_to_each')?['cre97_accidentinsuranceid']",
+                  "item/cre97_todate": "@formatDateTime(utcNow(), 'yyyy-MM-dd')"
+                },
+                "host": {
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                  "operationId": "UpdateOnlyRecord",
+                  "connectionName": "shared_commondataserviceforapps"
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "a207f1ea-575b-4124-b425-64bbcf4a60b4"
+              }
+            }
+          },
+          "runAfter": {
+            "List_rows": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "28385957-96bd-4762-9be0-3eeda8de2ba7"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

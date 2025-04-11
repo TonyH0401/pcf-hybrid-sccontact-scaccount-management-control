@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{759310cc-0f32-4429-90bd-5de763663be2}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{d8f46451-5caf-456a-b859-de12d8424d91}" IsUserDefined="1" name="General">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="true" showbar="false" IsUserDefined="0" id="{568da4af-87b6-481f-b88e-70c80b05d9dc}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{40acda39-a2fd-47d9-8e5a-83b098704369}" colspan="1" rowspan="1" showlabel="true">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cre97_name" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6f62901d-a57c-4406-9163-469a2c8f7c5b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_id" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cre97_id" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{8cd67bd3-7c42-4958-9d1c-a949b6452b1c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_capacity" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cre97_capacity" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3f29520f-3f5d-41f7-aba1-837d7e614329}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_type" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cre97_type" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5b97b564-24b4-43d5-a560-b0a26955ad66}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="true" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ba96013a-19b4-4dbb-899a-d45220441492}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="statecode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statecode" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="Meaningful name" id="e9013d21-b871-4c9c-9db0-6d3a47370633" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115" visible="false">
+                  <labels>
+                    <label description="Timeline" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{16034f98-f2a1-4f25-9f6c-2c8e02b5a605}" colspan="1" rowspan="6">
+                        <labels>
+                          <label description="Past Customer" languagecode="1033" />
+                        </labels>
+                        <control indicationOfSubgrid="true" id="cc_1743394922528" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" uniqueid="{98b3fdef-00d6-4267-b544-d1d21f21bb24}">
+                          <parameters>
+                            <TargetEntityType>cre97_bookedroom</TargetEntityType>
+                            <ViewId>{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewId>
+                            <EnableViewPicker>false</EnableViewPicker>
+                            <IsUserView>false</IsUserView>
+                            <RecordsPerPage>4</RecordsPerPage>
+                            <RelationshipName>cre97_BookedRoom_RoomLease_cre97_Room</RelationshipName>
+                            <ViewIds>{46FA4865-DDC2-494B-B21E-A465A6A2ECB9},{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewIds>
+                            <ChartGridMode>Grid</ChartGridMode>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{d42ffe59-de3b-4e28-8c1e-567945aba1f8}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{2cee41de-cd13-49be-9479-a6b8388528e5}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{1d83549b-14dc-4d8f-bb4a-19ed55ecf285}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{128d8545-0dbb-48a5-a8c0-6f2b236fb62b}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{4b668c53-90ad-426a-b75a-a4d94e8d2a74}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{a2fc27c1-3804-4ca7-81ff-3df5358ed01f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{66bce0d4-eac2-4465-82c3-2154a7fe92f7}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{2d7fc0f6-dd49-4d87-97ed-12f6a4366646}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{98b3fdef-00d6-4267-b544-d1d21f21bb24}">
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters>
+              <TargetEntityType>cre97_bookedroom</TargetEntityType>
+              <ViewId>{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewId>
+              <EnableViewPicker>false</EnableViewPicker>
+              <IsUserView>false</IsUserView>
+              <RecordsPerPage>4</RecordsPerPage>
+            </parameters>
+          </customControl>
+          <customControl id="{E7A81278-8635-4D9E-8D4D-59480B391C5B}">
+            <parameters>
+              <TargetEntityType>cre97_bookedroom</TargetEntityType>
+              <ViewId>{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewId>
+              <EnableViewPicker>false</EnableViewPicker>
+              <IsUserView>false</IsUserView>
+              <RecordsPerPage>4</RecordsPerPage>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewId>
+                <TargetEntityType>cre97_bookedroom</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <columnsDefaultView>
+                  <cell entityName="cre97_bookedroom" viewId="{a1f99e5d-e70d-f011-998a-002248ebc0de}" attributeName="cre97_bookedcustomer">
+                    <DefaultViewId>{b08a8631-8099-4b6f-9cb8-ad7f8011d5a8}</DefaultViewId>
+                  </cell>
+                </columnsDefaultView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cre97_BookedRoom_RoomLease_cre97_Room</RelationshipName>
+                <FilteredViewIds />
+              </data-set>
+              <EnableGroupBy type="Enum" static="true">yes</EnableGroupBy>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <ReflowBehavior type="Enum" static="true">GridOnly</ReflowBehavior>
+              <ListLayoutDirection type="Enum" static="true">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse type="Enum" static="true">false</EnableSubGridAutoCollapse>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <HideNestedGridColumnHeader type="Enum" static="true">no</HideNestedGridColumnHeader>
+              <EnableJumpBar type="Enum" static="true">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewId>
+                <TargetEntityType>cre97_bookedroom</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <columnsDefaultView>
+                  <cell entityName="cre97_bookedroom" viewId="{a1f99e5d-e70d-f011-998a-002248ebc0de}" attributeName="cre97_bookedcustomer">
+                    <DefaultViewId>{b08a8631-8099-4b6f-9cb8-ad7f8011d5a8}</DefaultViewId>
+                  </cell>
+                </columnsDefaultView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cre97_BookedRoom_RoomLease_cre97_Room</RelationshipName>
+                <FilteredViewIds />
+              </data-set>
+              <EnableGroupBy type="Enum" static="true">yes</EnableGroupBy>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <ReflowBehavior type="Enum" static="true">GridOnly</ReflowBehavior>
+              <ListLayoutDirection type="Enum" static="true">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse type="Enum" static="true">false</EnableSubGridAutoCollapse>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <HideNestedGridColumnHeader type="Enum" static="true">no</HideNestedGridColumnHeader>
+              <EnableJumpBar type="Enum" static="true">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.Grid.GridControl">
+            <parameters>
+              <data-set name="Grid">
+                <ViewId>{A1F99E5D-E70D-F011-998A-002248EBC0DE}</ViewId>
+                <TargetEntityType>cre97_bookedroom</TargetEntityType>
+                <IsUserView>false</IsUserView>
+                <columnsDefaultView>
+                  <cell entityName="cre97_bookedroom" viewId="{a1f99e5d-e70d-f011-998a-002248ebc0de}" attributeName="cre97_bookedcustomer">
+                    <DefaultViewId>{b08a8631-8099-4b6f-9cb8-ad7f8011d5a8}</DefaultViewId>
+                  </cell>
+                </columnsDefaultView>
+                <EnableViewPicker>false</EnableViewPicker>
+                <RelationshipName>cre97_BookedRoom_RoomLease_cre97_Room</RelationshipName>
+                <FilteredViewIds />
+              </data-set>
+              <EnableGroupBy type="Enum" static="true">yes</EnableGroupBy>
+              <EnableEditing type="Enum" static="true">yes</EnableEditing>
+              <ReflowBehavior type="Enum" static="true">GridOnly</ReflowBehavior>
+              <ListLayoutDirection type="Enum" static="true">Vertical</ListLayoutDirection>
+              <EnableSubGridAutoCollapse type="Enum" static="true">false</EnableSubGridAutoCollapse>
+              <EnableFiltering type="Enum" static="true">yes</EnableFiltering>
+              <HideNestedGridColumnHeader type="Enum" static="true">no</HideNestedGridColumnHeader>
+              <EnableJumpBar type="Enum" static="true">yes</EnableJumpBar>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+      <formLibraries>
+        <Library name="cre97_bruh" libraryUniqueId="{4a624a21-17cc-4ef6-973d-98821dc6f04f}" />
+      </formLibraries>
+      <events>
+        <event name="onload" application="false" active="false">
+          <Handlers>
+            <Handler functionName="checkIfRoomWasBookedOnLOad" libraryName="cre97_bruh" handlerUniqueId="{f216162b-f189-4948-805c-9d735c45b5d8}" enabled="true" parameters="" passExecutionContext="true" />
+          </Handlers>
+        </event>
+      </events>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information Detail" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

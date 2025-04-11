@@ -1,0 +1,3 @@
+cre97_basicprice: =Round(cre97_duration * 100, 0)
+cre97_duration: =If(IsBlank(cre97_date) || IsBlank(cre97_enddate), 0, DateDiff(cre97_date, cre97_enddate, TimeUnit.Days))
+cre97_totalprice: =If(cre97_advancedservice,cre97_basicprice*1.2+ cre97_basicprice *1.1,cre97_basicprice *1.1)

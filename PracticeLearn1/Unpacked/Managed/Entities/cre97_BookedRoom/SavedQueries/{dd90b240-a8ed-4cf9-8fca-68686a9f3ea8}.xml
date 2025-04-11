@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{dd90b240-a8ed-4cf9-8fca-68686a9f3ea8}</savedqueryid>
+    <layoutxml>
+      <grid name="cre97_bookedrooms" jump="cre97_name" select="1" icon="1" preview="1">
+        <row name="cre97_bookedroom" id="cre97_bookedroomid">
+          <cell name="cre97_name" width="300" />
+          <cell name="createdon" width="125" />
+          <cell name="cre97_paid" width="100" />
+          <cell name="cre97_rating" width="100" />
+          <cell name="cre97_paymentmethod" width="135" />
+          <cell name="cre97_seriesnum" width="103" />
+          <cell name="cre97_cvv" width="100" />
+          <cell name="cre97_bank" width="100" />
+          <cell name="cre97_chequeno" width="104" />
+          <cell name="cre97_paymentdate" width="116" />
+          <cell name="cre97_paymentcode" width="119" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>2</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="cre97_bookedroom">
+          <attribute name="cre97_bookedroomid" />
+          <attribute name="cre97_name" />
+          <attribute name="createdon" />
+          <order attribute="cre97_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="cre97_paid" />
+          <attribute name="cre97_rating" />
+          <attribute name="cre97_paymentmethod" />
+          <attribute name="cre97_seriesnum" />
+          <attribute name="cre97_cvv" />
+          <attribute name="cre97_bank" />
+          <attribute name="cre97_chequeno" />
+          <attribute name="cre97_paymentdate" />
+          <attribute name="cre97_paymentcode" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="BookedRoom Associated View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

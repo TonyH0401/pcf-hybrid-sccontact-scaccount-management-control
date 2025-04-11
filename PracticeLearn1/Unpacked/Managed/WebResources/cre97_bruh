@@ -1,0 +1,43 @@
+function checkIfRoomWasBookedOnLOad(executionContext) {
+    // Get the form context
+
+    var formContext = executionContext.getFormContext();
+    var allControls = formContext.getControl();
+    console.log("Test:",formContext.getControl("cre97_name"));
+    var roomLease = formContext.getControl("cre97_name")?.getValue();
+if(roomLease){
+    console.log(roomLease);
+   
+ var recordId = formContext.data.entity.getId();
+console.log(recordId );
+    // Remove the curly braces from the GUID (optional, depending on your needs)
+    var recordGuid = recordId.replace(/[{}]/g, "");
+
+    console.log("Current Record GUID:", recordGuid);
+    // Query the bookedroom table to check if there are any bookings for this room
+ var query = "?$filter=_cre97_roomlease_value eq " + recordGuid + "&$top=1";
+    // Use Xrm.WebApi to query the table
+    Xrm.WebApi.retrieveMultipleRecords("cre97_bookedroom", query).then(
+        function success(result) {
+            console.log("Query Result:", result); // Log full result object
+            console.log("Retrieved Entities:", result.entities); // Log entities array
+            console.log(result.entities.length);
+            if (result.entities.length > 0) {
+                console.log("Showing");
+                // If records are found, the room was booked
+               var tab = formContext.ui.tabs.get("General");
+                var section = tab.sections.get("Meaningful name"); 
+               section.setVisible(true); // Show section
+               console.log("Showing");
+            } else {
+                // If no records are found, the room was never booked
+                Xrm.Utility.alertDialog("This room has never been booked.");
+            }
+        },
+        function error(error) {
+            // Handle any errors
+            Xrm.Utility.alertDialog("Error: " + error.message);
+        }
+    );
+}
+}

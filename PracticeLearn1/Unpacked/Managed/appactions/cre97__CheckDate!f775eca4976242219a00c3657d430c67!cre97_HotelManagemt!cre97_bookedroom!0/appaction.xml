@@ -1,0 +1,32 @@
+<appaction uniquename="cre97__CheckDate!f775eca4976242219a00c3657d430c67!cre97_HotelManagemt!cre97_bookedroom!0">
+  <appmoduleid>
+    <uniquename>cre97_HotelManagemt</uniquename>
+  </appmoduleid>
+  <buttonlabeltext default="Check Date">
+    <label description="Check Date" languagecode="1033" />
+  </buttonlabeltext>
+  <context>1</context>
+  <contextentity>
+    <logicalname>cre97_bookedroom</logicalname>
+  </contextentity>
+  <contextvalue>cre97_bookedroom</contextvalue>
+  <fonticon>$clientsvg:Calendar</fonticon>
+  <hidden>0</hidden>
+  <iscustomizable>1</iscustomizable>
+  <isdisabled>0</isdisabled>
+  <isgrouptitlehidden>0</isgrouptitlehidden>
+  <location>0</location>
+  <name>CheckDate!f775eca4976242219a00c3657d430c67</name>
+  <onclickeventformulacomponentlibraryid>
+    <name>cre97_hotelmanagemtdefaultcommandlibrary_7e9b7</name>
+  </onclickeventformulacomponentlibraryid>
+  <onclickeventformulacomponentname>533eb5f26d414db79c7f625f254882dd</onclickeventformulacomponentname>
+  <onclickeventformulafunctionname>OnSelect</onclickeventformulafunctionname>
+  <onclickeventtype>1</onclickeventtype>
+  <origin>0</origin>
+  <sequence>100100015.0000000000</sequence>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <type>0</type>
+  <visibilitytype>0</visibilitytype>
+</appaction>

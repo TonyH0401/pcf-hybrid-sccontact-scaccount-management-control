@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{44055912-a9ba-48e5-80b0-77ea6f729a50}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{5a73057b-34b2-4f47-920b-9825851744cc}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="25%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{ba840ecc-bee5-4eb7-9cf3-915a572159a1}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{55682c88-7ef8-4409-a51b-9ad6dce11891}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cre97_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{14c60788-8ad4-4f15-94b8-5ae896efed51}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_4" id="0ef57cdc-2aad-42b6-9e6b-9ed352e4ae4a" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Basic info" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{ddf905a3-9085-407b-8fc1-8059f787bce4}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_customereatbuffet" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="cre97_customereatbuffet" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{2f5cdefe-d7e8-4683-b782-34a181b91f60}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="New QV control 1743156885294" languagecode="1033" />
+                        </labels>
+                        <control id="QuickviewControl1743156885294" classid="{5C5600E0-1D6E-4205-A272-BE80DA87FD42}" datafieldname="cre97_customereatbuffet">
+                          <parameters>
+                            <DisplayAsCustomer360Tile>false</DisplayAsCustomer360Tile>
+                            <QuickForms>&lt;QuickFormIds&gt;&lt;QuickFormId entityname="cre97_customer"&gt;57dbb281-fc09-f011-bae3-6045bd593806&lt;/QuickFormId&gt;&lt;/QuickFormIds&gt;</QuickForms>
+                          </parameters>
+                        </control>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d794bec3-2bec-4b8f-9e58-ccf8441908df}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_numberofpeople" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cre97_numberofpeople" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{b7d4ba3a-c283-4b33-a02a-ae1927c84bec}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_meal" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cre97_meal" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{c7ce756b-212e-46ce-b9e8-736a98e3b498}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_time" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cre97_time" uniqueid="{ed7317fc-a00f-469b-802d-31a4567c2294}" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_6" id="085e36f0-2b42-484a-bdea-d840f2d52d68" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="History" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{169f8046-ba2c-4d9a-815b-49e1c5e2dc3a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="createdon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="createdon" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d883c3e3-b343-4b90-a898-d6c12eaeace7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="modifiedon" classid="{5B773807-9FB2-42DB-97C3-7A91EFF8ADFF}" datafieldname="modifiedon" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="75%">
+              <sections>
+                <section name="_section_438" id="173eb30e-be40-453b-9ff0-4871084f34ea" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Detail" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell locklevel="0" id="{32915409-e3d2-47c8-919f-cc63ac53a081}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_drinkincluded" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cre97_drinkincluded" uniqueid="{73dd3c4a-1572-4deb-a628-6c8a118fd03a}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell locklevel="0" id="{8a32721b-80ec-4988-9442-80a046e22062}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_hotpot" classid="{F9A8A302-114E-466A-B582-6771B2AE0D92}" datafieldname="cre97_hotpot" uniqueid="{eebeab10-187d-4d66-a4aa-9628b83c2be5}" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{7273754d-2236-45ba-bf2f-8eacf85a79ef}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_note" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cre97_note" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="null_section_5" id="8f3eb22c-ae4f-4af8-825f-2f7ccd35a0ce" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="Payment" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row />
+                    <row>
+                      <cell id="{7f1cb438-252c-4824-85ef-2506420c6121}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                        <control id="cre97_price" classid="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}" datafieldname="cre97_price" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{ce15f084-4845-4d3c-8397-b1db5ceb047f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{d13be327-7a59-419a-81b1-16b91770c14f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{57993c40-5dfe-4d58-92c2-0e9bd67d4f30}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{76a8df03-3521-4081-bea6-b247f901b5b3}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{685929d7-a360-4160-a948-5ba6426db2f0}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9d440d60-d918-4915-b40d-507131a95fce}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{23dcc1d4-fea3-4b09-b66c-016c87861c61}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{5a5716e8-7c1f-4f91-8903-9ba15d5fedae}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+      <controlDescriptions>
+        <controlDescription forControl="{eebeab10-187d-4d66-a4aa-9628b83c2be5}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cre97_hotpot</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cre97_hotpot</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.CheckboxControl">
+            <parameters>
+              <value type="TwoOptions">cre97_hotpot</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.CheckboxControl">
+            <parameters>
+              <value type="TwoOptions">cre97_hotpot</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.CheckboxControl">
+            <parameters>
+              <value type="TwoOptions">cre97_hotpot</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{73dd3c4a-1572-4deb-a628-6c8a118fd03a}">
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cre97_drinkincluded</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{67FAC785-CD58-4F9F-ABB3-4B7DDC6ED5ED}">
+            <parameters>
+              <datafieldname>cre97_drinkincluded</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.FieldControls.CheckboxControl">
+            <parameters>
+              <value type="TwoOptions">cre97_drinkincluded</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.FieldControls.CheckboxControl">
+            <parameters>
+              <value type="TwoOptions">cre97_drinkincluded</value>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.FieldControls.CheckboxControl">
+            <parameters>
+              <value type="TwoOptions">cre97_drinkincluded</value>
+            </parameters>
+          </customControl>
+        </controlDescription>
+        <controlDescription forControl="{ed7317fc-a00f-469b-802d-31a4567c2294}">
+          <customControl id="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}">
+            <parameters>
+              <datafieldname>cre97_time</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl id="{C3EFE0C3-0EC6-42BE-8349-CBD9079DFD8E}">
+            <parameters>
+              <datafieldname>cre97_time</datafieldname>
+            </parameters>
+          </customControl>
+          <customControl formFactor="0" name="MscrmControls.NumberInput.NumberInputControl">
+            <parameters>
+              <value type="Currency">cre97_time</value>
+              <step type="Decimal" static="true">8.0000000</step>
+            </parameters>
+          </customControl>
+          <customControl formFactor="2" name="MscrmControls.NumberInput.NumberInputControl">
+            <parameters>
+              <value type="Currency">cre97_time</value>
+              <step type="Decimal" static="true">8.0000000</step>
+            </parameters>
+          </customControl>
+          <customControl formFactor="1" name="MscrmControls.NumberInput.NumberInputControl">
+            <parameters>
+              <value type="Currency">cre97_time</value>
+              <step type="Decimal" static="true">8.0000000</step>
+            </parameters>
+          </customControl>
+        </controlDescription>
+      </controlDescriptions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>cre97_HotelManagemt</UniqueName>
+  <IntroducedVersion>1.0.0.0</IntroducedVersion>
+  <WebResourceId>f28fb1c6-270a-f011-bae3-000d3a862367</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="cre97_accidentinsurance" />
+    <AppModuleComponent type="1" schemaName="cre97_bookedroom" />
+    <AppModuleComponent type="1" schemaName="cre97_buffet" />
+    <AppModuleComponent type="1" schemaName="cre97_customer" />
+    <AppModuleComponent type="1" schemaName="cre97_room" />
+    <AppModuleComponent type="62" schemaName="cre97_HotelManagemt" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{8098baf2-f914-f011-998a-000d3a862367}" />
+    <Role id="{724dffd8-2711-f011-998a-002248ebc0de}" />
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+    <Role id="{ea1ea704-fb14-f011-998a-6045bd593806}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Hotel Managemt" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Bruh bruh dark dark lmao i dont know it just a WIP app" languagecode="1033" />
+  </Descriptions>
+  <appelements>
+    <appelement uniquename="cre97_cre97_HotelManagemt_canvasappid_cre97_hotelmanagemtdefaultcommandlibrary_7e9b7">
+      <canvasappid>
+        <name>cre97_hotelmanagemtdefaultcommandlibrary_7e9b7</name>
+      </canvasappid>
+      <iscustomizable>1</iscustomizable>
+      <name>cre97_cre97_HotelManagemt_canvasappid_cre97_hotelmanagemtdefaultcommandlibrary_7e9b7</name>
+    </appelement>
+  </appelements>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AppChannel">
+      <iscustomizable>1</iscustomizable>
+      <value>1</value>
+    </appsetting>
+  </appsettings>
+</AppModule>
