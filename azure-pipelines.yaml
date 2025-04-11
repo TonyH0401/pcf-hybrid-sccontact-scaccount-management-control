@@ -12,7 +12,7 @@ variables:
   packedSolutionName: 'PracticeLearn1_1_0_1_0_managed.zip'
   packedSolutionPath: '$(Build.ArtifactStagingDirectory)/$(packedSolutionName)'
   environmentUrl: 'https://test-training-env.crm5.dynamics.com'
-  serviceConnection: 'Service Connection Testing II'
+  serviceConnection: 'Service Connection Testing II Nhan Le Chinh'
 
 steps:
   - task: PowerPlatformToolInstaller@2
