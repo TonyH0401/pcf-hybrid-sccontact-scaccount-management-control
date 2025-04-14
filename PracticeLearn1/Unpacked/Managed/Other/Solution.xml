@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.25033.192" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25033.192" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25033.00192">
+<ImportExportXml version="9.2.25034.202" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OrganizationVersion="9.2.25034.202" OrganizationSchemaType="Full" CRMServerServiceabilityVersion="9.2.25034.00202">
   <SolutionManifest>
     <UniqueName>PracticeLearn1</UniqueName>
     <LocalizedNames>
@@ -136,7 +136,7 @@
       </MissingDependency>
       <MissingDependency>
         <Required type="61" schemaName="msdyn_OmnichannelBase/_imgs/SitemapIcon/OmnichannelQueues" displayName="msdyn_OmnichannelBase/_imgs/SitemapIcon/OmnichannelQueues" solution="OmnichannelBase (1.10.0.84)">
-          <package appName="UnifiedRoutingPrime" version="1.5.26.182">UnifiedRoutingPrimeAnchor (1.5.26.182)</package>
+          <package appName="UnifiedRoutingPrime" version="1.5.26.185">UnifiedRoutingPrimeAnchor (1.5.26.185)</package>
         </Required>
         <Dependent type="62" schemaName="cre97_HotelManagemt" />
       </MissingDependency>
@@ -147,56 +147,56 @@
         <Dependent type="62" schemaName="cre97_HotelManagemt" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="26" schemaName="Active BookedRooms" displayName="Active BookedRooms" parentSchemaName="cre97_bookedroom" parentDisplayName="BookedRoom" id="{46fa4865-ddc2-494b-b21e-a465a6a2ecb9}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="26" schemaName="Active Buffets" displayName="Active Buffets" parentSchemaName="cre97_buffet" parentDisplayName="Buffet" id="{59995090-fecc-4330-ac62-dbc67760b33b}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="Microsoft.PowerApps.PowerAppsOneGrid" displayName="Microsoft.PowerApps.PowerAppsOneGrid" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="26" schemaName="PowerBI BookedRooms" displayName="PowerBI BookedRooms" parentSchemaName="cre97_bookedroom" parentDisplayName="BookedRoom" id="{f979392d-880b-f011-bae3-002248ebc0de}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.CheckboxControl" displayName="MscrmControls.FieldControls.CheckboxControl" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="MscrmControls.FieldControls.CheckboxControl" displayName="MscrmControls.FieldControls.CheckboxControl" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Buffet" id="{44055912-a9ba-48e5-80b0-77ea6f729a50}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="MscrmControls.FieldControls.ToggleControl" displayName="MscrmControls.FieldControls.ToggleControl" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="BookedRoom" id="{a637da95-8ebf-4287-b622-82054167dc02}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="MscrmControls.Grid.GridControl" displayName="MscrmControls.Grid.GridControl" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="60" displayName="Information Detail" parentDisplayName="Room" id="{759310cc-0f32-4429-90bd-5de763663be2}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.NumberInput.NumberInputControl" displayName="MscrmControls.NumberInput.NumberInputControl" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="MscrmControls.NumberInput.NumberInputControl" displayName="MscrmControls.NumberInput.NumberInputControl" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="Buffet" id="{44055912-a9ba-48e5-80b0-77ea6f729a50}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.NumberInput.NumberInputControl" displayName="MscrmControls.NumberInput.NumberInputControl" solution="BaseCustomControlsCore (9.0.2503.3014)">
-          <package appName="Base Custom Controls" version="9.0.2503.3014">BaseCustomControlsCore (9.0.2503.3014)</package>
+        <Required type="66" schemaName="MscrmControls.NumberInput.NumberInputControl" displayName="MscrmControls.NumberInput.NumberInputControl" solution="BaseCustomControlsCore (9.0.2503.4012)">
+          <package appName="Base Custom Controls" version="9.0.2503.4012">BaseCustomControlsCore (9.0.2503.4012)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="BookedRoom" id="{a637da95-8ebf-4287-b622-82054167dc02}" />
       </MissingDependency>
       <MissingDependency>
-        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.25033.00192)">
-          <package appName="Custom Controls Package" version="9.2.25033.00192">CustomControlsCore (9.2.25033.00192)</package>
+        <Required type="66" schemaName="MscrmControls.Rating.StarRatingControl" displayName="MscrmControls.Rating.StarRatingControl" solution="CustomControlsCore (9.2.25034.00202)">
+          <package appName="Custom Controls Package" version="9.2.25034.00202">CustomControlsCore (9.2.25034.00202)</package>
         </Required>
         <Dependent type="60" displayName="Information" parentDisplayName="BookedRoom" id="{a637da95-8ebf-4287-b622-82054167dc02}" />
       </MissingDependency>
