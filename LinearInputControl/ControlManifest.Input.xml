@@ -19,6 +19,8 @@
     </external-service-usage>
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="sampleNumber" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type="Whole.None" usage="input" required="true" />
+    
     <!--
       Property node's of-type attribute can be of-type-group attribute.
       Example:
@@ -38,6 +40,7 @@
       -->
     </resources>
     <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    -->
     <feature-usage>
       <uses-feature name="Device.captureAudio" required="true" />
       <uses-feature name="Device.captureImage" required="true" />
@@ -48,6 +51,5 @@
       <uses-feature name="Utility" required="true" />
       <uses-feature name="WebAPI" required="true" />
     </feature-usage>
-    -->
   </control>
 </manifest>
