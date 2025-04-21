@@ -18,3 +18,17 @@ If you want to learn more about creating good readme files then refer the follow
 - [ASP.NET Core](https://github.com/aspnet/Home)
 - [Visual Studio Code](https://github.com/Microsoft/vscode)
 - [Chakra Core](https://github.com/Microsoft/ChakraCore)
+
+# Note
+
+These are the files you will modify and need to be careful about: `manifest`, `manifest type` and `index`. The `manifest` file is the file where you define input for the data input field, add tools with `webAPI`, `utility`, etc.
+
+In `index.ts` there are 4 parts:
+- `init()` runs once when the app is initialized to initialize the properties.
+- `updateView()` runs when any data is updated
+- `getOutputs()` gets the output...tbc
+- `destroy()` ...tbc
+
+`container` represent the UI, there is only 1 container, but a container can have multiple childs. If you try to have a container append child multiple div then try to change value, it will only change value of the first div only. To fix this, you need to append multiple div and have those div append a field used for edit information.
+
+`context` gets data from the context or data input section. Access them through `parameters.<name>.raw`
