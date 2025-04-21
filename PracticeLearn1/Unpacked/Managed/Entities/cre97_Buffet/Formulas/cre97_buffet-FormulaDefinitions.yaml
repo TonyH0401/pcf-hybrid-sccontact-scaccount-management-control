@@ -1,1 +1,0 @@
-cre97_price: =(If(cre97_time = 8.0,100,cre97_time = 12.00,200,cre97_time = 19.00,300, 400)* cre97_numberofpeople+If(cre97_hotpot,30,0))*If(cre97_drinkincluded,1.1,1)*1.1
