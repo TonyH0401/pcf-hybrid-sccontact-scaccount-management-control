@@ -2,7 +2,7 @@
 <manifest>
   <control namespace="SampleNamespace" constructor="PaginatedEntityList" version="0.0.1"
     display-name-key="Paginated Entity List"
-    description-key="Displays a list of entities with pagination" control-type="virtual">
+    description-key="Displays a list of entities with pagination" control-type="standard">
     <!--external-service-usage
     node declares whether this 3rd party PCF control is using external service or not, if yes, this
     control will be considered as premium and please also add the external domain it is using.
