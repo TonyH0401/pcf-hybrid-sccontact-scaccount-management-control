@@ -7,27 +7,31 @@ import {
   SearchBox,
 } from "@fluentui/react";
 
+// Declare DummyData entity
 interface DummyData {
   id: number;
   name: string;
 }
 
+// Used for passing data using context keyword
 interface ListComponentControlProps {
   context: ComponentFramework.Context<IInputs>;
   notifyOutputChanged: () => void;
 }
 
+// This is where the magic begin
 const ListComponentControl: React.FC<ListComponentControlProps> = ({
   context,
   notifyOutputChanged,
 }) => {
+  // Initialize dummy data with data
   const dummyData: DummyData[] = [
     { id: 1, name: "John Doe" },
     { id: 2, name: "Jane Smith" },
     { id: 3, name: "Alice Johnson" },
     { id: 4, name: "Bob Brown" },
   ];
-  // 2. State to hold the current search text
+  // 2. State to hold the current search text (Initialized)
   const [searchText, setSearchText] = React.useState<string>("");
 
   const [scAccounts, setScAccounts] = React.useState<unknown[]>([]);
@@ -59,17 +63,18 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         crff8_scaccountname?: string;
       };
       return (
-        account.crff8_scaccountnumber?.toLowerCase().includes(term) || // 🔁 Match on name or number
+        account.crff8_scaccountnumber?.toLowerCase().includes(term) || // Match on name or number
         account.crff8_scaccountname?.toLowerCase().includes(term)
       );
     });
   }, [searchText, scAccounts]);
 
+  // Define columns for DetailTable
   const columns: IColumn[] = [
     {
       key: "column1",
       name: "ID",
-      fieldName: "crff8_scaccountnumber",
+      fieldName: "crff8_scaccountnumber", // This is where the data is mapped based on the column name/logical name
       minWidth: 50,
       maxWidth: 100,
       isResizable: true,
@@ -77,7 +82,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     {
       key: "column2",
       name: "Tên",
-      fieldName: "crff8_scaccountname",
+      fieldName: "crff8_scaccountname", // This is where the data is mapped based on the column name/logical name
       minWidth: 150,
       maxWidth: 300,
       isResizable: true,
@@ -105,7 +110,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
 
       <div style={{ width: "100%", margin: "0 auto" }}>
         <DetailsList
-          items={filteredItems} // Instead of dummy value, it will load based on filteredItems
+          items={filteredItems} // Instead of dummy value, it will load based on filteredItems from the search
           columns={columns}
           setKey="filtered"
           layoutMode={DetailsListLayoutMode.justified}
