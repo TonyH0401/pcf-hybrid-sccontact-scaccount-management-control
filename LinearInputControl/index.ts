@@ -1,6 +1,6 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
-export class LinearInputControl
+export class PaginatedEntityList
   implements ComponentFramework.StandardControl<IInputs, IOutputs>
 {
   private _div1: HTMLDivElement;
