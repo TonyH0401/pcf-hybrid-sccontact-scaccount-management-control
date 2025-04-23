@@ -29,6 +29,23 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   ];
   // 2. State to hold the current search text
   const [searchText, setSearchText] = React.useState<string>("");
+
+  const [scAccounts, setScAccounts] = React.useState<unknown[]>([]);
+  React.useEffect(() => {
+    const fetchScAccounts = async () => {
+      try {
+        const result = await context.webAPI.retrieveMultipleRecords("crff8_scaccount", "?$select=crff8_scaccountnumber,crff8_scaccountname");
+        console.log("scaccount records:", result.entities);
+        setScAccounts(result.entities);
+      } catch (error) {
+        console.log("NOOOOO")
+        console.error("Error retrieving scaccount records:", error);
+      }
+    };
+
+    fetchScAccounts();
+  }, [context]);
+
   // 3. Compute filtered items whenever searchText changes
   const filteredItems = React.useMemo(() => {
     const term = searchText.trim().toLowerCase();
