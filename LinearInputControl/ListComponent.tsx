@@ -34,11 +34,14 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   React.useEffect(() => {
     const fetchScAccounts = async () => {
       try {
-        const result = await context.webAPI.retrieveMultipleRecords("crff8_scaccount", "?$select=crff8_scaccountnumber,crff8_scaccountname");
+        const result = await context.webAPI.retrieveMultipleRecords(
+          "crff8_scaccount",
+          "?$select=crff8_scaccountnumber,crff8_scaccountname"
+        );
         console.log("scaccount records:", result.entities);
         setScAccounts(result.entities);
       } catch (error) {
-        console.log("NOOOOO")
+        console.log("NOOOOO");
         console.error("Error retrieving scaccount records:", error);
       }
     };
@@ -49,20 +52,24 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   // 3. Compute filtered items whenever searchText changes
   const filteredItems = React.useMemo(() => {
     const term = searchText.trim().toLowerCase();
-    if (!term) return dummyData;
-    return dummyData.filter((item) => {
+    if (!term) return scAccounts as unknown[];
+    return (scAccounts as unknown[]).filter((item) => {
+      const account = item as {
+        crff8_scaccountnumber?: string;
+        crff8_scaccountname?: string;
+      };
       return (
-        item.id.toString().includes(term) ||
-        item.name.toLowerCase().includes(term)
+        account.crff8_scaccountnumber?.toLowerCase().includes(term) || // 🔁 Match on name or number
+        account.crff8_scaccountname?.toLowerCase().includes(term)
       );
     });
-  }, [searchText]);
+  }, [searchText, scAccounts]);
 
   const columns: IColumn[] = [
     {
       key: "column1",
       name: "ID",
-      fieldName: "id",
+      fieldName: "crff8_scaccountnumber",
       minWidth: 50,
       maxWidth: 100,
       isResizable: true,
@@ -70,7 +77,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     {
       key: "column2",
       name: "Tên",
-      fieldName: "name",
+      fieldName: "crff8_scaccountname",
       minWidth: 150,
       maxWidth: 300,
       isResizable: true,
