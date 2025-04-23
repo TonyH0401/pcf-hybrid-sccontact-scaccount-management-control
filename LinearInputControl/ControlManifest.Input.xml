@@ -50,6 +50,7 @@
     -->
     <resources>
       <code path="index.ts" order="1" />
+      <css path="index.css"/>
       <!-- <css path="css/PaginatedEntityList.css" order="1" /> -->
       <platform-library name="React" version="16.8.6" />
       <platform-library name="Fluent" version="8.29.0" />

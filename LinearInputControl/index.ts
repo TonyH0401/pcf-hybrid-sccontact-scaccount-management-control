@@ -1,11 +1,16 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { createRoot, Root } from "react-dom/client";
+import StakeholderList from "./StakeholderList";
 
 export class PaginatedEntityList
   implements ComponentFramework.StandardControl<IInputs, IOutputs>
 {
   private _div1: HTMLDivElement;
   private _div2: HTMLDivElement;
-
+  private _container: HTMLDivElement;
+  private _root: Root;
   /**
    * Empty constructor.
    */
@@ -28,19 +33,22 @@ export class PaginatedEntityList
     container: HTMLDivElement
   ): void {
     // Add control initialization code
-    // Format _div1
-    this._div1 = document.createElement("div");
-    this._div1.innerText = "This is the 1st div value!";
-    this._div1.style.backgroundColor = "#32a852";
-    this._div1.style.margin = "5px";
-    // Format _div2
-    this._div2 = document.createElement("div");
-    this._div2.innerText = "This is the 2nd div value!";
-    this._div2.style.backgroundColor = "#329da8";
-    this._div2.style.margin = "5px";
-    // Add both div to the container
-    container.append(this._div1);
-    container.append(this._div2);
+    // // Format _div1
+    // this._div1 = document.createElement("div");
+    // this._div1.innerText = "This is the 1st div value!";
+    // this._div1.style.backgroundColor = "#32a852";
+    // this._div1.style.margin = "5px";
+    // // Format _div2
+    // this._div2 = document.createElement("div");
+    // this._div2.innerText = "This is the 2nd div value!";
+    // this._div2.style.backgroundColor = "#329da8";
+    // this._div2.style.margin = "5px";
+    // // Add both div to the container
+    // container.append(this._div1);
+    // container.append(this._div2);
+    this._container = container;
+    // this._root = createRoot(container)
+    this._root = createRoot(this._container);
   }
 
   /**
@@ -49,14 +57,16 @@ export class PaginatedEntityList
    */
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
-    const textContextval =
-      context.parameters.sampleProperty?.raw ?? "Unknown String Value";
-    const numberContextVal =
-      context.parameters.sampleNumber?.raw == 0
-        ? 0
-        : context.parameters.sampleNumber?.raw ?? 100;
-    this._div1.innerText = `The String Value is: ${textContextval}`;
-    this._div2.innerText = `The Number Value is: ${numberContextVal}`;
+    // const textContextval =
+    //   context.parameters.sampleProperty?.raw ?? "Unknown String Value";
+    // const numberContextVal =
+    //   context.parameters.sampleNumber?.raw == 0
+    //     ? 0
+    //     : context.parameters.sampleNumber?.raw ?? 100;
+    // this._div1.innerText = `The String Value is: ${textContextval}`;
+    // this._div2.innerText = `The Number Value is: ${numberContextVal}`;
+    // this._root.render(React.createElement(StakeholderList));
+    ReactDOM.render(React.createElement(StakeholderList), this._container);
   }
 
   /**
@@ -73,5 +83,6 @@ export class PaginatedEntityList
    */
   public destroy(): void {
     // Add code to cleanup control if necessary
+    ReactDOM.unmountComponentAtNode(this._container);
   }
 }
