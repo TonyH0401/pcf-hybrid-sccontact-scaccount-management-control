@@ -61,5 +61,6 @@ export class LinearInputControl
    */
   public destroy(): void {
     // Add code to cleanup control if necessary
+    this.root?.unmount();
   }
 }
