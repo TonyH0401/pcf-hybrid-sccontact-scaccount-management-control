@@ -27,6 +27,8 @@
     from CDS -->
     <property name="sampleProperty" display-name-key="Property_Display_Key"
       description-key="Property_Desc_Key" of-type="SingleLine.Text" usage="bound" required="true" />
+    <property name="samplenNumber" display-name-key="Property_Display_Key"
+      description-key="Property_Desc_Key" of-type="Whole.None" usage="bound" required="true" />
     <!--
       Property node's of-type attribute can be of-type-group attribute.
       Example:

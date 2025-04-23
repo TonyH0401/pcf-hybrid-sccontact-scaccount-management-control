@@ -2,7 +2,7 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
-import MyVirtualControl from "./ListComponent";
+import ListComponentControl from "./ListComponent";
 export class LinearInputControl
   implements ComponentFramework.StandardControl<IInputs, IOutputs>
 {
@@ -35,7 +35,7 @@ export class LinearInputControl
     // Add control initialization code
     this.container = container;
     this.root = ReactDOM.createRoot(container);
-    this.root.render(React.createElement(MyVirtualControl));
+    this.root.render(React.createElement(ListComponentControl));
   }
 
   /**
@@ -44,7 +44,12 @@ export class LinearInputControl
    */
   public updateView(context: ComponentFramework.Context<IInputs>): void {
     // Add code to update control view
-    this.root?.render(React.createElement(MyVirtualControl));
+    this.root?.render(
+      React.createElement(ListComponentControl, {
+        context: context,
+        notifyOutputChanged: this._notifyOutputChanged,
+      })
+    );
   }
 
   /**
