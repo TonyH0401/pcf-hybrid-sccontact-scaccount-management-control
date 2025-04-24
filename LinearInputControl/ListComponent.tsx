@@ -21,7 +21,10 @@ interface ListComponentControlProps {
   notifyOutputChanged: () => void;
 }
 
-// Fetch ScAccount
+// ============================================
+// Functions Section (will soon be moved to a file)
+// ============================================
+// Fetch ScAccount Data
 async function fetchScAccountsData(
   context: ComponentFramework.Context<IInputs>
 ) {
@@ -38,13 +41,18 @@ async function fetchScAccountsData(
     return [];
   }
 }
-
+// Fetch ScContact Data where ScContact is NOT associated with ScAccount via association table
+/* 
+Originally, it was "Fetch ScContact Data where ScContact IS associated with ScAccount via association table", I changed operator from 'eq' to 'ne' but it didn't work,
+it turned in to "Fetch ScContact Data where ScContact IS associated with OTHER ScAccount BUT NOT with the given ScAccount GUID via association table",
+so I need to find another way which is this way below. 
+ */
 async function fetchScContactsDataAssociateNot(
   context: ComponentFramework.Context<IInputs>
 ) {
   try {
     const scAccountGUID = context.parameters.sampleText.raw;
-    console.log(`GUIDE Value: ${scAccountGUID}`);
+    console.log(`ScAccount GUID Value: ${scAccountGUID}`);
     const fetchXML = 
           `<fetch>
             <entity name='crff8_sccontact'>
@@ -69,7 +77,7 @@ async function fetchScContactsDataAssociateNot(
       "crff8_sccontact",
       `?fetchXml=${encodedFetchXML}`
     );
-    console.log("sccontact associate not equal:", result.entities);
+    console.log("sccontact associate not:", result.entities);
     return result.entities;
   } catch (error) {
     console.error("Error retrieving sccontact associate records:", error);
@@ -77,7 +85,9 @@ async function fetchScContactsDataAssociateNot(
   }
 }
 
-// This is where the magic begin
+// ============================================
+// Main Component Section (this is where the magic begin)
+// ============================================
 const ListComponentControl: React.FC<ListComponentControlProps> = ({
   context,
   notifyOutputChanged,
