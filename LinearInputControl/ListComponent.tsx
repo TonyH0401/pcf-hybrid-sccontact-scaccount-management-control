@@ -39,7 +39,7 @@ async function fetchScAccountsData(
   }
 }
 
-async function fetchScContactsDataAssociated(
+async function fetchScContactsDataAssociateNot(
   context: ComponentFramework.Context<IInputs>
 ) {
   try {
@@ -100,7 +100,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       setIsLoading(true);
       const [account] = await Promise.all([
         fetchScAccountsData(context),
-        fetchScContactsDataAssociated(context),
+        fetchScContactsDataAssociateNot(context),
       ]);
       setScAccounts(account);
       setIsLoading(false);
