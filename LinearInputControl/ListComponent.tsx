@@ -14,9 +14,29 @@ interface DummyData {
 }
 
 // Used for passing data using context keyword
+// https://youtu.be/R1hTz-T5feQ?si=JAccsVjHru1K8hZl.
+// https://chatgpt.com/c/680890cf-ab18-8010-ad6e-d31757052e66. Scroll to the way top
 interface ListComponentControlProps {
   context: ComponentFramework.Context<IInputs>;
   notifyOutputChanged: () => void;
+}
+
+// Fetch ScAccount
+async function fetchScAccountsData(
+  context: ComponentFramework.Context<IInputs>
+) {
+  try {
+    const result = await context.webAPI.retrieveMultipleRecords(
+      "crff8_scaccount",
+      "?$select=crff8_scaccountnumber,crff8_scaccountname"
+    );
+    console.log("scaccount records:", result.entities);
+    return result.entities;
+  } catch (error) {
+    console.log("NOOOOO");
+    console.error("Error retrieving scaccount records:", error);
+    return [];
+  }
 }
 
 // This is where the magic begin
@@ -36,21 +56,11 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   const [scAccounts, setScAccounts] = React.useState<unknown[]>([]); // State to hold "scAccounts" and "setScAccounts", no initial value
 
   React.useEffect(() => {
-    const fetchScAccounts = async () => {
-      try {
-        const result = await context.webAPI.retrieveMultipleRecords(
-          "crff8_scaccount",
-          "?$select=crff8_scaccountnumber,crff8_scaccountname"
-        );
-        console.log("scaccount records:", result.entities);
-        setScAccounts(result.entities);
-      } catch (error) {
-        console.log("NOOOOO");
-        console.error("Error retrieving scaccount records:", error);
-      }
+    const loadData = async () => {
+      const accounts = await fetchScAccountsData(context);
+      setScAccounts(accounts);
     };
-
-    fetchScAccounts();
+    loadData();
   }, [context]);
 
   // 3. Compute filtered items whenever searchText changes
@@ -67,7 +77,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         account.crff8_scaccountname?.toLowerCase().includes(term)
       );
     });
-  }, [searchText, scAccounts]);
+  }, [searchText, scAccounts]); // Dependency array, if any of these change, it trigger this, idk how to explain
 
   // Define columns for DetailTable
   const columns: IColumn[] = [
@@ -93,7 +103,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   const value = context?.parameters?.sampleText.raw ?? "Unknown Value";
 
   return (
-    // 
+    //
     <div style={{ padding: "16px" }}>
       <div style={{ textAlign: "center", marginBottom: "20px" }}>
         <h3 style={{ margin: 0 }}>Danh sách: {title}</h3>
@@ -103,8 +113,8 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       <div style={{ width: "100%", maxWidth: "600px", margin: "0 auto 12px" }}>
         <SearchBox
           placeholder="Tìm theo ID hoặc tên..."
-          value={searchText}
-          onChange={(_, newValue) => setSearchText(newValue || "")}
+          value={searchText} // This is for displaying UI only
+          onChange={(_, newValue) => setSearchText(newValue || "")} // When the user change any values, it will update searchText
           underlined={false}
         />
       </div>
