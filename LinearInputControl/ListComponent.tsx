@@ -67,6 +67,7 @@ async function fetchScContactsDataAssociateNot(
       `?fetchXml=${encodedFetchXML}`
     );
     console.log("sccontact associate not equal:", result.entities);
+    return result.entities;
   } catch (error) {
     console.error("Error retrieving sccontact associate records:", error);
     return [];
@@ -88,48 +89,49 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   // Initialize "state" to hold and set/change value
   const [searchText, setSearchText] = React.useState<string>(""); // State to hold "searchText" and "setSearchText", no initial value
   const [scAccounts, setScAccounts] = React.useState<unknown[]>([]); // State to hold "scAccounts" and "setScAccounts", no initial value
+  const [scContacts, setScContacts] = React.useState<unknown[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
-    // const loadData = async () => {
-    //   const accounts = await fetchScAccountsData(context);
-    //   setScAccounts(accounts);
-    // };
-    // loadData();
     const loadData = async () => {
-      setIsLoading(true);
-      const [account] = await Promise.all([
-        fetchScAccountsData(context),
-        fetchScContactsDataAssociateNot(context),
-      ]);
-      setScAccounts(account);
-      setIsLoading(false);
+      const contacts = await fetchScContactsDataAssociateNot(context);
+      setScContacts(contacts);
     };
     loadData();
+    // const loadData = async () => {
+    //   setIsLoading(true);
+    //   const [account] = await Promise.all([
+    //     fetchScAccountsData(context),
+    //     fetchScContactsDataAssociateNot(context),
+    //   ]);
+    //   setScAccounts(account);
+    //   setIsLoading(false);
+    // };
+    // loadData();
   }, [context]);
 
   // 3. Compute filtered items whenever searchText changes
   const filteredItems = React.useMemo(() => {
     const term = searchText.trim().toLowerCase();
-    if (!term) return scAccounts as unknown[];
-    return (scAccounts as unknown[]).filter((item) => {
-      const account = item as {
-        crff8_scaccountnumber?: string;
-        crff8_scaccountname?: string;
+    if (!term) return scContacts as unknown[];
+    return (scContacts as unknown[]).filter((item) => {
+      const contact = item as {
+        crff8_sccontactnumber?: string;
+        crff8_sccontactid?: string;
       };
       return (
-        account.crff8_scaccountnumber?.toLowerCase().includes(term) || // Match on name or number
-        account.crff8_scaccountname?.toLowerCase().includes(term)
+        contact.crff8_sccontactnumber?.toLowerCase().includes(term) || // Match on name or number
+        contact.crff8_sccontactid?.toLowerCase().includes(term)
       );
     });
-  }, [searchText, scAccounts]); // Dependency array, if any of these change, it trigger this, idk how to explain
+  }, [searchText, scContacts]); // Dependency array, if any of these change, it trigger this, idk how to explain
 
   // Define columns for DetailTable
   const columns: IColumn[] = [
     {
       key: "column1",
       name: "ID", // Display name
-      fieldName: "crff8_scaccountnumber", // This is where the data is mapped based on the column name/logical name
+      fieldName: "crff8_sccontactnumber", // This is where the data is mapped based on the column name/logical name
       minWidth: 50,
       maxWidth: 100,
       isResizable: true,
@@ -137,7 +139,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     {
       key: "column2",
       name: "Tên",
-      fieldName: "crff8_scaccountname", // This is where the data is mapped based on the column name/logical name
+      fieldName: "crff8_sccontactid", // This is where the data is mapped based on the column name/logical name
       minWidth: 150,
       maxWidth: 300,
       isResizable: true,
