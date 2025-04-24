@@ -39,6 +39,29 @@ async function fetchScAccountsData(
   }
 }
 
+async function fetchScContactsDataAssociated(context:ComponentFramework.Context<IInputs>) {
+  try {
+    const scAccountGUID = context.parameters.sampleText.raw;
+    console.log(`GUIDE Value: ${scAccountGUID}`)
+    const fetchXML = 
+          `<fetch>
+              <entity name='crff8_sccontact'>
+                <link-entity name='crff8_sccontact_crff8_scaccount' from='crff8_sccontactid' to='crff8_sccontactid' intersect='true'>
+                  <filter>
+                    <condition attribute='crff8_scaccountid' operator='eq' value='${scAccountGUID}' />
+                  </filter>
+                </link-entity>
+              </entity>
+            </fetch>`;
+    const encodedFetchXML = encodeURIComponent(fetchXML);
+    const result = await context.webAPI.retrieveMultipleRecords("crff8_sccontact", `?fetchXml=${encodedFetchXML}`)
+    console.log(result.entities)
+  } catch (error) {
+    console.error("Error retrieving sccontact associate records:", error);
+    return []
+  }
+}
+
 // This is where the magic begin
 const ListComponentControl: React.FC<ListComponentControlProps> = ({
   context,
@@ -54,11 +77,19 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   // Initialize "state" to hold and set/change value
   const [searchText, setSearchText] = React.useState<string>(""); // State to hold "searchText" and "setSearchText", no initial value
   const [scAccounts, setScAccounts] = React.useState<unknown[]>([]); // State to hold "scAccounts" and "setScAccounts", no initial value
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
 
   React.useEffect(() => {
+    // const loadData = async () => {
+    //   const accounts = await fetchScAccountsData(context);
+    //   setScAccounts(accounts);
+    // };
+    // loadData();
     const loadData = async () => {
-      const accounts = await fetchScAccountsData(context);
-      setScAccounts(accounts);
+      setIsLoading(true);
+      const [account] = await Promise.all([fetchScAccountsData(context), fetchScContactsDataAssociated(context)]);
+      setScAccounts(account);
+      setIsLoading(false)
     };
     loadData();
   }, [context]);
