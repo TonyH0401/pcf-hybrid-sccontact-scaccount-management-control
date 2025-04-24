@@ -39,12 +39,13 @@ async function fetchScAccountsData(
   }
 }
 
-async function fetchScContactsDataAssociated(context:ComponentFramework.Context<IInputs>) {
+async function fetchScContactsDataAssociated(
+  context: ComponentFramework.Context<IInputs>
+) {
   try {
     const scAccountGUID = context.parameters.sampleText.raw;
-    console.log(`GUIDE Value: ${scAccountGUID}`)
-    const fetchXML = 
-          `<fetch>
+    console.log(`GUIDE Value: ${scAccountGUID}`);
+    const fetchXML = `<fetch>
             <entity name='crff8_sccontact'>
               <link-entity name='crff8_sccontact_crff8_scaccount'
                           from='crff8_sccontactid'
@@ -61,11 +62,14 @@ async function fetchScContactsDataAssociated(context:ComponentFramework.Context<
             </entity>
           </fetch>`;
     const encodedFetchXML = encodeURIComponent(fetchXML);
-    const result = await context.webAPI.retrieveMultipleRecords("crff8_sccontact", `?fetchXml=${encodedFetchXML}`)
-    console.log("sccontact associate not equal:", result.entities)
+    const result = await context.webAPI.retrieveMultipleRecords(
+      "crff8_sccontact",
+      `?fetchXml=${encodedFetchXML}`
+    );
+    console.log("sccontact associate not equal:", result.entities);
   } catch (error) {
     console.error("Error retrieving sccontact associate records:", error);
-    return []
+    return [];
   }
 }
 
@@ -94,9 +98,12 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     // loadData();
     const loadData = async () => {
       setIsLoading(true);
-      const [account] = await Promise.all([fetchScAccountsData(context), fetchScContactsDataAssociated(context)]);
+      const [account] = await Promise.all([
+        fetchScAccountsData(context),
+        fetchScContactsDataAssociated(context),
+      ]);
       setScAccounts(account);
-      setIsLoading(false)
+      setIsLoading(false);
     };
     loadData();
   }, [context]);
