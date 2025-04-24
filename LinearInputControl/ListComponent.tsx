@@ -45,8 +45,11 @@ async function fetchScContactsDataAssociateNot(
   try {
     const scAccountGUID = context.parameters.sampleText.raw;
     console.log(`GUIDE Value: ${scAccountGUID}`);
-    const fetchXML = `<fetch>
+    const fetchXML = 
+          `<fetch>
             <entity name='crff8_sccontact'>
+              <attribute name='crff8_sccontactid' />
+              <attribute name='crff8_sccontactnumber' />
               <link-entity name='crff8_sccontact_crff8_scaccount'
                           from='crff8_sccontactid'
                           to='crff8_sccontactid'
