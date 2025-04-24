@@ -7,7 +7,7 @@ import {
   SearchBox,
 } from "@fluentui/react";
 
-// Declare DummyData entity
+// Declare DummyData entity (to be deleted)
 interface DummyData {
   id: number;
   name: string;
@@ -24,17 +24,17 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   context,
   notifyOutputChanged,
 }) => {
-  // Initialize dummy data with data
+  // Initialize dummy data with data (to be deleted)
   const dummyData: DummyData[] = [
     { id: 1, name: "John Doe" },
     { id: 2, name: "Jane Smith" },
     { id: 3, name: "Alice Johnson" },
     { id: 4, name: "Bob Brown" },
   ];
-  // 2. State to hold the current search text (Initialized)
-  const [searchText, setSearchText] = React.useState<string>("");
+  // Initialize "state" to hold and set/change value
+  const [searchText, setSearchText] = React.useState<string>(""); // State to hold "searchText" and "setSearchText", no initial value
+  const [scAccounts, setScAccounts] = React.useState<unknown[]>([]); // State to hold "scAccounts" and "setScAccounts", no initial value
 
-  const [scAccounts, setScAccounts] = React.useState<unknown[]>([]);
   React.useEffect(() => {
     const fetchScAccounts = async () => {
       try {
@@ -73,7 +73,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   const columns: IColumn[] = [
     {
       key: "column1",
-      name: "ID",
+      name: "ID", // Display name
       fieldName: "crff8_scaccountnumber", // This is where the data is mapped based on the column name/logical name
       minWidth: 50,
       maxWidth: 100,
@@ -93,6 +93,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   const value = context?.parameters?.sampleText.raw ?? "Unknown Value";
 
   return (
+    // 
     <div style={{ padding: "16px" }}>
       <div style={{ textAlign: "center", marginBottom: "20px" }}>
         <h3 style={{ margin: 0 }}>Danh sách: {title}</h3>
@@ -111,7 +112,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       <div style={{ width: "100%", margin: "0 auto" }}>
         <DetailsList
           items={filteredItems} // Instead of dummy value, it will load based on filteredItems from the search
-          columns={columns}
+          columns={columns} // Used to columns we defined before
           setKey="filtered"
           layoutMode={DetailsListLayoutMode.justified}
           isHeaderVisible={true}
