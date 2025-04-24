@@ -215,7 +215,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         />
       </div>
 
-      <div style={{ width: "100%", margin: "0 auto" }}>
+      <div style={{ width: "100%", margin: "0 auto", height: '300px', overflowY: 'auto' }}>
         <DetailsList
           items={filteredItems} // Instead of dummy value, it will load based on filteredItems from the search
           columns={columns} // Used to columns we defined before
