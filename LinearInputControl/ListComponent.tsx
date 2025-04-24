@@ -45,17 +45,24 @@ async function fetchScContactsDataAssociated(context:ComponentFramework.Context<
     console.log(`GUIDE Value: ${scAccountGUID}`)
     const fetchXML = 
           `<fetch>
-              <entity name='crff8_sccontact'>
-                <link-entity name='crff8_sccontact_crff8_scaccount' from='crff8_sccontactid' to='crff8_sccontactid' intersect='true'>
-                  <filter>
-                    <condition attribute='crff8_scaccountid' operator='eq' value='${scAccountGUID}' />
-                  </filter>
-                </link-entity>
-              </entity>
-            </fetch>`;
+            <entity name='crff8_sccontact'>
+              <link-entity name='crff8_sccontact_crff8_scaccount'
+                          from='crff8_sccontactid'
+                          to='crff8_sccontactid'
+                          link-type='outer'
+                          alias='link'>
+                <filter type='and'>
+                  <condition attribute='crff8_scaccountid' operator='eq' value='${scAccountGUID}' />
+                </filter>
+              </link-entity>
+              <filter type='and'>
+                <condition entityname='link' attribute='crff8_scaccountid' operator='null' />
+              </filter>
+            </entity>
+          </fetch>`;
     const encodedFetchXML = encodeURIComponent(fetchXML);
     const result = await context.webAPI.retrieveMultipleRecords("crff8_sccontact", `?fetchXml=${encodedFetchXML}`)
-    console.log(result.entities)
+    console.log("sccontact associate not equal:", result.entities)
   } catch (error) {
     console.error("Error retrieving sccontact associate records:", error);
     return []
