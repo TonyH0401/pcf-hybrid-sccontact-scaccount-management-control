@@ -5,7 +5,8 @@ import {
   IColumn,
   DetailsListLayoutMode,
   SearchBox,
-  Selection, SelectionMode,
+  Selection,
+  SelectionMode,
   PrimaryButton,
 } from "@fluentui/react";
 
@@ -111,7 +112,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         const selectedItems = selection.getSelection();
         if (selectedItems.length > 0) {
           console.log("Các dòng được chọn:");
-          selectedItems.forEach((item, index) => {  
+          selectedItems.forEach((item, index) => {
             console.log(`Row ${index + 1}:`, item);
           });
         } else {
@@ -155,18 +156,24 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     });
   }, [searchText, scContacts]); // Dependency array, if any of these change, it trigger this, idk how to explain
   //Event handler for button
-  // const handleGetSelectedId = () => {
-  //   const selectedItems = selection.getSelection();
-  //   if (selectedItems.length === 0) {
-  //     alert("Vui lòng chọn một dòng.");
-  //     return;
-  //   }
-
-  //   const selected = selectedItems[0] as { crff8_sccontactid: string };
-  //   const selectedId = selected.crff8_sccontactid;
-  //   console.log("Selected ID:", selectedId);
-  //   alert(`ID được chọn: ${selectedId}`);
-  // };
+  const handleGetSelectedId = () => {
+    const selectedItems = selection.getSelection();
+    if (selectedItems.length === 0) {
+      alert("Vui lòng chọn một dòng.");
+      return;
+    }
+    selectedItems.forEach((item, index) => {
+      const contact = item as {
+        crff8_sccontactid?: string;
+        crff8_sccontactnumber?: string;
+      };
+      console.log(
+        `Button Row ${index + 1}: ID - ${
+          contact.crff8_sccontactid
+        } and Number - ${contact.crff8_sccontactnumber}`
+      );
+    });
+  };
 
   // Define columns for DetailTable
   const columns: IColumn[] = [
@@ -222,12 +229,12 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       </div>
 
       {/* Button */}
-      {/* <div style={{ textAlign: "center", marginBottom: "12px" }}>
+      <div style={{ textAlign: "center", marginBottom: "12px" }}>
         <PrimaryButton
           text="Lấy ID từ dòng được chọn"
           onClick={handleGetSelectedId}
         />
-      </div> */}
+      </div>
     </div>
   );
 };
