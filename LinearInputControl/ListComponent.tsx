@@ -5,6 +5,8 @@ import {
   IColumn,
   DetailsListLayoutMode,
   SearchBox,
+  Selection, SelectionMode,
+  PrimaryButton,
 } from "@fluentui/react";
 
 // Declare DummyData entity (to be deleted)
@@ -53,8 +55,7 @@ async function fetchScContactsDataAssociateNot(
   try {
     const scAccountGUID = context.parameters.sampleText.raw;
     console.log(`ScAccount GUID Value: ${scAccountGUID}`);
-    const fetchXML = 
-          `<fetch>
+    const fetchXML = `<fetch>
             <entity name='crff8_sccontact'>
               <attribute name='crff8_sccontactid' />
               <attribute name='crff8_sccontactnumber' />
@@ -104,6 +105,21 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
   const [scAccounts, setScAccounts] = React.useState<unknown[]>([]); // State to hold "scAccounts" and "setScAccounts", no initial value
   const [scContacts, setScContacts] = React.useState<unknown[]>([]);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [selection] = React.useState(
+    new Selection({
+      onSelectionChanged: () => {
+        const selectedItems = selection.getSelection();
+        if (selectedItems.length > 0) {
+          console.log("Các dòng được chọn:");
+          selectedItems.forEach((item, index) => {  
+            console.log(`Row ${index + 1}:`, item);
+          });
+        } else {
+          console.log("Không có dòng nào được chọn.");
+        }
+      },
+    })
+  );
 
   React.useEffect(() => {
     const loadData = async () => {
@@ -138,6 +154,19 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       );
     });
   }, [searchText, scContacts]); // Dependency array, if any of these change, it trigger this, idk how to explain
+  //Event handler for button
+  // const handleGetSelectedId = () => {
+  //   const selectedItems = selection.getSelection();
+  //   if (selectedItems.length === 0) {
+  //     alert("Vui lòng chọn một dòng.");
+  //     return;
+  //   }
+
+  //   const selected = selectedItems[0] as { crff8_sccontactid: string };
+  //   const selectedId = selected.crff8_sccontactid;
+  //   console.log("Selected ID:", selectedId);
+  //   alert(`ID được chọn: ${selectedId}`);
+  // };
 
   // Define columns for DetailTable
   const columns: IColumn[] = [
@@ -186,8 +215,19 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
           setKey="filtered"
           layoutMode={DetailsListLayoutMode.justified}
           isHeaderVisible={true}
+          selection={selection}
+          selectionPreservedOnEmptyClick={true}
+          selectionMode={SelectionMode.multiple}
         />
       </div>
+
+      {/* Button */}
+      {/* <div style={{ textAlign: "center", marginBottom: "12px" }}>
+        <PrimaryButton
+          text="Lấy ID từ dòng được chọn"
+          onClick={handleGetSelectedId}
+        />
+      </div> */}
     </div>
   );
 };
