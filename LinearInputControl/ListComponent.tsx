@@ -173,17 +173,17 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         } and Number - ${contact.crff8_sccontactnumber}`
       );
     });
-    // // 
-    // try {
-    //   await context.webAPI.createRecord("crff8_sccontact_crff8_scaccount", {
-    //       crff8_scaccountid: "ad81f4bc-771e-f011-998a-000d3aa12cf4",
-    //       crff8_sccontactid: "04e03b76-f720-f011-998a-000d3aa12cf4"
-    //   });      
-    //   console.log("Sucess")
-    // } catch (error) {
-    //   console.log(error)
-    //   console.error(`❌ Failed to link contact`, error);
-    // }
+    // 
+    try {
+      await context.webAPI.createRecord("crff8_sccontact_crff8_scaccount", {
+          "crff8_SCAccountId@odata.bind": "/crff8_scaccounts(ad81f4bc-771e-f011-998a-000d3aa12cf4)",
+          "crff8_SCContactId@odata.bind": "/crff8_sccontacts(04e03b76-f720-f011-998a-000d3aa12cf4)"
+      });      
+      console.log("Success")
+    } catch (error) {
+      console.log(error)
+      console.error(`❌ Failed to link contact`, error);
+    }
   };
 
   // Define columns for DetailTable
