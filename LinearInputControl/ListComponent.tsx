@@ -156,7 +156,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     });
   }, [searchText, scContacts]); // Dependency array, if any of these change, it trigger this, idk how to explain
   //Event handler for button
-  const handleGetSelectedId = () => {
+  const handleGetSelectedId = async () => {
     const selectedItems = selection.getSelection();
     if (selectedItems.length === 0) {
       alert("Vui lòng chọn một dòng.");
@@ -173,6 +173,17 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         } and Number - ${contact.crff8_sccontactnumber}`
       );
     });
+    // // 
+    // try {
+    //   await context.webAPI.createRecord("crff8_sccontact_crff8_scaccount", {
+    //       crff8_scaccountid: "ad81f4bc-771e-f011-998a-000d3aa12cf4",
+    //       crff8_sccontactid: "04e03b76-f720-f011-998a-000d3aa12cf4"
+    //   });      
+    //   console.log("Sucess")
+    // } catch (error) {
+    //   console.log(error)
+    //   console.error(`❌ Failed to link contact`, error);
+    // }
   };
 
   // Define columns for DetailTable
