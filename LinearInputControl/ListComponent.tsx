@@ -14,15 +14,16 @@ import {
 // ============================================
 // Type Declarations Section
 // ============================================
-// Declare DummyData type (to be deleted)
+// Declare 'DummyData' type (to be deleted)
 interface DummyData {
   id: number;
   name: string;
 }
-// Declare 
-// interface ScContact {
-
-// }
+// Declare 'RequestBody' type
+interface RequestBody {
+  account: string | undefined;
+  contact: string[];
+}
 
 // ============================================
 // Component Input Interface Section (pass data using 'context' keyword)
@@ -98,14 +99,17 @@ async function fetchScContactsDataAssociateNot(
     return [];
   }
 }
-// Post to PA
-// async function triggerRelateRowFlow(URL: string) {
-//   try {
-//     return [];
-//   } catch (error) {
-//     return [];
-//   }
-// }
+// Create an HTTP fetch to the Power Automate to run the native 'Relate Row' action (not a Custom Action)
+/* 
+This Power Automate Flow is called 'flow-test-code-2' and it doesn't have an error case, will add it later or handle error case via code in here
+*/
+async function triggerRelateRowFlow(URL: string, body: RequestBody) {
+  try {
+    return [];
+  } catch (error) {
+    return [];
+  }
+}
 
 // ============================================
 // Main Component Section (this is where the magic begin)
@@ -191,7 +195,8 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       alert("Vui lòng chọn một dòng.");
       return;
     }
-    const contactIds = selectedItems // Extract the GUID ONLY from the contact object
+    // Extract the GUID ONLY from the contact object
+    const contactIds = selectedItems
       .map((item) => {
         const contact = item as {
           crff8_sccontactid?: string;
@@ -200,7 +205,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         return contact.crff8_sccontactid;
       })
       .filter((id): id is string => !!id);
-    // Calling PA, careful because PA only has success cases
+    // Calling PA, careful because PA only has success cases, will create error handler in PA or in here
     console.log("GUID: ", context?.parameters?.sampleText.raw);
     console.log("Selected: ", contactIds);
     setIsLoading(true);
