@@ -125,6 +125,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
     { id: 3, name: "Alice Johnson" },
     { id: 4, name: "Bob Brown" },
   ];
+  
   // ---------------------------
   // State Variables (initialize "state" to hold and set/change value)
   // ---------------------------
@@ -306,7 +307,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
       {/* Search box */}
       <div style={{ width: "100%", maxWidth: "600px", margin: "0 auto 12px" }}>
         <SearchBox
-          placeholder="Tìm theo ID hoặc tên..."
+          placeholder="Tìm theo Number hoặc GUID..."
           value={searchText} // This is for displaying UI only
           onChange={(_, newValue) => setSearchText(newValue || "")} // When the user change any values, it will update 'searchText'
           underlined={false}
@@ -337,7 +338,7 @@ const ListComponentControl: React.FC<ListComponentControlProps> = ({
         style={{ textAlign: "center", marginTop: "12px", marginBottom: "12px" }}
       >
         <PrimaryButton
-          text="Lấy ID từ dòng được chọn"
+          text="Lấy GUID từ dòng được chọn"
           onClick={handleGetSelectedId}
         />
       </div>
